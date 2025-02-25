@@ -1,0 +1,25 @@
+/* Modo oscuro */
+body {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+/* Estilos del header */
+header {
+    background-color: #1e1e1e; 
+    color: white; 
+
+}
+
+.sidebar {
+    background-color: #1e1e1e; /* Fondo oscuro en la columna lateral */
+  
+}
+
+
+/* Footer */
+footer {
+    background-color: #1e1e1e; /* Fondo oscuro en el pie de página */
+    
+}
+

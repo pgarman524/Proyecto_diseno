@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GEOTOUR</title>
+    <link rel="stylesheet" href="css/styles-index.css">
+    <style>
+        .audio-player {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo"><a href="index.html">
+            <img src="images/v1_6372.png" id="img"></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="indexUbrique.html">Ubrique</a></li>
+                <li><a href="indexBosque.html">El Bosque</a></li>
+                <li><a href="indexGrazalema.html">Grazalema</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+        <!-- Interruptor de modo oscuro -->
+        <div class="dark-mode-switch">
+            <input type="checkbox" id="dark-mode-toggle">
+            <label for="dark-mode-toggle"></label>
+        </div>
+    </header>
+
+    <section class="main-content">
+        <div class="sidebar">
+            <h1>GEOTOUR</h1>
+        </div>
+
+        <div class="image-container">
+            <img src="images/v1_6361.png" alt="Imagen secundaria">
+        </div>
+    </section>
+
+
+    <script>
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        let darkModeStylesheet;
+
+        darkModeToggle.addEventListener('click', () => {
+            if (!darkModeStylesheet) {
+                // Cargar stylesDark.css si aún no está cargado
+                darkModeStylesheet = document.createElement('link');
+                darkModeStylesheet.rel = 'stylesheet';
+                darkModeStylesheet.href = 'css/styles-index-darkmode.css';
+                document.head.appendChild(darkModeStylesheet);
+                darkModeToggle.textContent = 'Modo claro'; // Cambiar texto del botón
+            } else {
+                // Si ya está cargado, remover el modo oscuro
+                document.head.removeChild(darkModeStylesheet);
+                darkModeStylesheet = null;
+                darkModeToggle.textContent = 'Modo oscuro'; // Cambiar texto del botón
+            }
+        });
+    </script>
+
+</body>
+</html>

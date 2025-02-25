@@ -1,0 +1,512 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #f2f2f2 !important;
+    /* Fondo claro por defecto */
+    color: #333 !important;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    /* Transición suave para cambiar entre modos */
+}
+
+body.dark-mode {
+    background: #121212 !important;
+    /* Fondo oscuro */
+    color: #e0e0e0 !important;
+    /* Texto claro en modo oscuro */
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(242, 101, 34, 0.9) !important;
+    /* Fondo semitransparente */
+    color: white !important;
+    padding: 20px 40px !important;
+    border-bottom: 3px solid #ff6347 !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+header.dark-mode {
+    background: rgba(18, 18, 18, 0.9) !important;
+    /* Fondo oscuro en modo oscuro */
+}
+
+header .logo {
+    padding: 0 !important;
+    transition: transform 0.3s ease;
+}
+
+header .logo img {
+    width: 12% !important;
+    height: auto !important;
+    border-radius: 50% !important;
+    transition: transform 0.3s ease;
+}
+
+header .logo:hover img {
+    transform: rotate(360deg) !important;
+}
+
+header nav {
+    flex: 2 !important;
+    display: flex !important;
+    justify-content: center !important;
+}
+
+header nav ul {
+    list-style: none !important;
+    display: flex !important;
+    justify-content: space-around !important;
+    align-items: center !important;
+    position: relative !important;
+}
+
+header nav ul li {
+    position: relative !important;
+    padding: 10px !important;
+    transition: transform 0.3s ease, background-color 0.3s ease !important;
+}
+
+header nav ul li:hover {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    transform: translateY(-5px) !important;
+}
+
+header nav ul li a {
+    text-decoration: none !important;
+    color: #fff !important;
+    font-size: 18px !important;
+    padding: 10px 15px !important;
+    display: block !important;
+    font-weight: bold !important;
+    letter-spacing: 1px !important;
+    transition: color 0.3s ease, transform 0.3s ease !important;
+}
+
+header nav ul li a:hover {
+    color: #ff6347 !important;
+    transform: scale(1.1) !important;
+}
+
+/* Estilos para el Dropdown */
+.dropdown {
+    display: none !important;
+    /* El dropdown está oculto por defecto */
+    position: absolute !important;
+    top: 40px !important;
+    left: 0 !important;
+    background-color: #fff !important;
+    border: 1px solid #ddd !important;
+    border-radius: 5px !important;
+    min-width: 150px !important;
+    z-index: 1000 !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+.dropdown a {
+    color: #000 !important;
+    padding: 10px !important;
+    display: block !important;
+    text-decoration: none !important;
+    font-size: 16px !important;
+    transition: background-color 0.3s ease !important;
+}
+
+.dropdown a:hover {
+    background-color: #f26522 !important;
+    color: white !important;
+}
+
+/* Mostrar el dropdown cuando el li está en hover */
+header nav ul li:hover .dropdown {
+    display: block !important;
+}
+
+/* Estilo del dropdown en modo oscuro */
+body.dark-mode header nav ul li:hover .dropdown {
+    background-color: #333 !important;
+    /* Fondo oscuro para el dropdown en modo oscuro */
+}
+
+body.dark-mode header nav ul li:hover .dropdown a {
+    color: #fff !important;
+    /* Texto claro en modo oscuro */
+}
+
+.section {
+    margin: 20px auto !important;
+    padding: 20px !important;
+    max-width: 1200px !important;
+    background-color: #fff !important;
+    border-radius: 10px !important;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1) !important;
+    transition: background-color 0.3s ease !important;
+}
+
+.section.dark-mode {
+    background-color: #1e1e1e !important;
+    /* Fondo oscuro para secciones en modo oscuro */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.4) !important;
+    /* Sombra más intensa en modo oscuro */
+}
+
+.section h2 {
+    text-align: center !important;
+    font-size: 28px !important;
+    margin-bottom: 20px !important;
+    position: relative !important;
+    color: #f26522 !important;
+    font-weight: bold !important;
+    letter-spacing: 2px !important;
+    transition: color 0.3s ease !important;
+}
+
+.section h2.dark-mode {
+    color: #ff6347 !important;
+    /* Color de texto de título en modo oscuro */
+}
+
+.section h2::after {
+    content: "" !important;
+    width: 100px !important;
+    height: 3px !important;
+    background-color: #f26522 !important;
+    position: absolute !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    bottom: -10px !important;
+}
+
+.carousel {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 20px !important;
+    flex-wrap: wrap !important;
+}
+
+.carousel img {
+    width: 300px !important;
+    height: 200px !important;
+    object-fit: cover !important;
+    border-radius: 10px !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
+    transition: transform 0.3s ease !important;
+}
+
+.carousel img:hover {
+    transform: scale(1.05) !important;
+    filter: brightness(1.2) !important;
+    /* Aumenta el brillo al pasar el ratón */
+}
+
+.carousel p {
+    font-size: 16px !important;
+    text-align: center !important;
+    margin-top: 10px !important;
+    color: #555 !important;
+    font-style: italic !important;
+    transition: color 0.3s ease !important;
+}
+
+.carousel.dark-mode p {
+    color: #ddd !important;
+    /* Texto claro en el carrusel cuando está en modo oscuro */
+}
+
+footer {
+    background-color: #f26522 !important;
+    color: white !important;
+    padding: 20px !important;
+    text-align: center !important;
+    border-top: 3px solid #ff6347 !important;
+    position: relative !important;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1) !important;
+    transition: background-color 0.3s ease, color 0.3s ease !important;
+}
+
+footer.dark-mode {
+    background-color: #121212 !important;
+    /* Fondo oscuro en modo oscuro */
+    color: #e0e0e0 !important;
+    /* Texto claro en modo oscuro */
+}
+
+footer a {
+    text-decoration: none !important;
+    color: #fff !important;
+    font-size: 16px !important;
+    transition: color 0.3s ease !important;
+}
+
+footer a:hover {
+    color: #ff6347 !important;
+}
+
+/* Estilos para el botón de modo oscuro */
+#dark-mode-toggle {
+    width: 120px !important;
+    height: 40px !important;
+    border-radius: 20px !important;
+    background-color: #f26522 !important;
+    color: #fff !important;
+    border: none !important;
+    cursor: pointer !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+    transition: background-color 0.3s ease !important;
+}
+
+#dark-mode-toggle:hover {
+    background-color: #d35400 !important;
+}
+
+/* Estilos para el interruptor de modo oscuro (sol y luna) */
+.dark-mode-switch {
+    position: relative !important;
+    width: 50px !important;
+    height: 25px !important;
+    margin-left: auto !important;
+}
+
+.dark-mode-switch input {
+    display: none !important;
+}
+
+.dark-mode-switch label {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-color: #ccc !important;
+    border-radius: 25px !important;
+    position: relative !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s ease !important;
+}
+
+/* Estilo del círculo (sol o luna) */
+.dark-mode-switch label::before {
+    content: '\2600' !important;
+    /* Sol */
+    font-size: 14px !important;
+    color: #f26522 !important;
+    width: 19px !important;
+    height: 19px !important;
+    background-color: white !important;
+    border-radius: 50% !important;
+    position: absolute !important;
+    top: 3px !important;
+    left: 3px !important;
+    transition: transform 0.3s ease !important;
+}
+
+/* Cuando el interruptor está activado (modo oscuro) */
+.dark-mode-switch input:checked+label::before {
+    content: '\1F319' !important;
+    /* Luna */
+    font-size: 14px !important;
+    color: #fff !important;
+    transform: translateX(25px) !important;
+}
+
+/* Icono de luna y sol */
+.dark-mode-switch label .sun,
+.dark-mode-switch label .moon {
+    position: absolute !important;
+    top: 5px !important;
+    font-size: 12px !important;
+    transition: opacity 0.3s ease !important;
+}
+
+.dark-mode-switch label .sun {
+    left: 5px !important;
+    opacity: 0 !important;
+}
+
+.dark-mode-switch label .moon {
+    right: 5px !important;
+    opacity: 1 !important;
+}
+
+/* Mostrar el icono del sol cuando el interruptor está activado */
+.dark-mode-switch input:checked+label .sun {
+    opacity: 1 !important;
+}
+
+.dark-mode-switch input:checked+label .moon {
+    opacity: 0 !important;
+}
+
+
+
+
+
+/* 
+    Estilo para contacto
+
+*/
+
+.contact-form {
+    background: #fff;
+    margin-top: 10%;
+    margin-bottom: 5%;
+    width: 70%;
+    border-radius: 0.5rem;
+    /* Menos redondeado */
+}
+
+.contact-form .form-control {
+    border-radius: 0.5rem;
+    /* Menos redondeado */
+}
+
+.contact-image {
+    text-align: center;
+}
+
+.contact-image img {
+    border-radius: 6rem;
+    width: 11%;
+    margin-top: -3%;
+}
+
+.contact-form form {
+    padding: 14%;
+}
+
+.contact-form form .row {
+    margin-bottom: -7%;
+}
+
+.contact-form h3 {
+    margin-bottom: 8%;
+    margin-top: -10%;
+    text-align: center;
+    color: #333;
+}
+
+.btnContact {
+    width: 50%;
+    border: none;
+    border-radius: 0.5rem;
+    /* Menos redondeado */
+    padding: 1.5%;
+    background: #0062cc;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+}
+
+.btnContactSubmit {
+    width: 50%;
+    border-radius: 0.5rem;
+    /* Menos redondeado */
+    padding: 1.5%;
+    color: #fff;
+    background-color: #0062cc;
+    border: none;
+    cursor: pointer;
+}
+
+#name:focus:required:invalid {
+    border: 2px solid red;
+}
+
+#email:focus:required:invalid {
+    border: 2px solid red;
+}
+
+#message:focus:required:invalid {
+    border: 2px solid red;
+}
+
+
+#phone:focus:required:invalid {
+    border: 2px solid red;
+}
+
+#date:focus:required:invalid {
+    border: 2px solid red;
+}
+
+#time:focus:required:invalid {
+    border: 2px solid red;
+}
+
+#guests:focus:required:invalid {
+    border: 2px solid red;
+}
+
+
+
+
+
+/* Media Queries para Responsividad */
+
+/* Para dispositivos móviles (menos de 600px) */
+@media (max-width: 600px) {
+    header {
+        padding: 15px !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+
+    header .logo img {
+        width: 25% !important;
+        transition: transform 0.3s ease !important;
+    }
+
+    header nav {
+        width: 100% !important;
+        margin-top: 15px !important;
+    }
+
+    header nav ul {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+
+    .carousel {
+        flex-direction: column !important;
+        gap: 15px !important;
+    }
+
+    .carousel img {
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    footer {
+        padding: 15px !important;
+    }
+
+    #dark-mode-toggle {
+        width: 100px !important;
+        height: 35px !important;
+        font-size: 14px !important;
+    }
+}
+
+/* Para tabletas (600px - 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+    header nav ul {
+        flex-direction: row !important;
+    }
+
+    .carousel {
+        gap: 25px !important;
+    }
+
+    .carousel img {
+        width: 250px !important;
+        height: 175px !important;
+    }
+}

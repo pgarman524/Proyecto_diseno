@@ -1,0 +1,250 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    background-color: #f26522;
+    color: #fff;
+    padding: 10px 20px;
+    flex-wrap: wrap;
+    /* Asegura que el contenido del header se ajuste en pantallas pequeñas */
+}
+
+header .logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0;
+}
+
+header .logo img {
+    width: 10%;
+    height: auto;
+}
+
+header nav {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+}
+
+header nav ul li {
+    position: relative;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    padding: 10px 15px;
+    display: block;
+}
+
+header nav ul li:hover .dropdown {
+    display: block;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    min-width: 150px;
+    z-index: 1000;
+}
+
+.dropdown a {
+    color: #000;
+    padding: 10px;
+    display: block;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.dropdown a:hover {
+    background-color: #f26522;
+    color: #fff;
+}
+
+.section {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 1200px;
+}
+
+.section h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.section h2::after {
+    content: "";
+    width: 100px;
+    height: 3px;
+    background-color: #f26522;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px;
+}
+
+.carousel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.carousel img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.carousel p {
+    font-size: 16px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+footer {
+    background-color: #f26522;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+footer a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+}
+
+#dark-mode-toggle {
+    width: 120px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: #f26522;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+#dark-mode-toggle:hover {
+    background-color: #d35400;
+}
+
+/* Media Queries para Responsividad */
+
+/* Para dispositivos móviles (menos de 600px) */
+@media (max-width: 600px) {
+    header {
+        padding: 10px;
+        justify-content: space-between;
+    }
+
+    header .logo img {
+        width: 30%;
+        /* Aumentamos el tamaño del logo en pantallas pequeñas */
+    }
+
+    header nav {
+        flex: 1;
+        justify-content: flex-end;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        /* Los elementos de la navegación se apilan verticalmente */
+        padding: 10px;
+    }
+
+    header nav ul li {
+        width: 100%;
+        /* Los items de menú ocupan todo el ancho */
+        text-align: center;
+    }
+
+    header nav ul li a {
+        font-size: 16px;
+        padding: 8px 12px;
+    }
+
+    .carousel {
+        flex-direction: column;
+        /* Los elementos del carrusel se apilan en dispositivos pequeños */
+    }
+
+    .carousel img {
+        width: 100%;
+        /* Imágenes de carrusel ocupan todo el ancho */
+        height: auto;
+    }
+
+    footer {
+        padding: 15px;
+    }
+
+    #dark-mode-toggle {
+        width: 100px;
+        height: 35px;
+        font-size: 14px;
+    }
+}
+
+/* Para tabletas (600px - 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+    header nav ul {
+        flex-direction: row;
+    }
+
+    header nav ul li {
+        text-align: center;
+    }
+
+    .carousel {
+        gap: 20px;
+    }
+
+    .carousel img {
+        width: 200px;
+        height: 150px;
+    }
+}
+
+/* Para pantallas grandes (más de 1024px) */
+@media (min-width: 1025px) {
+    header nav ul {
+        justify-content: center;
+    }
+
+    .carousel img {
+        width: 300px;
+        height: 200px;
+    }
+}

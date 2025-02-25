@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grazalema</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .illustration {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('images/grazalema_ilust.jpg') no-repeat center center;
+            background-size: cover;
+            filter: blur(10px);
+            opacity: 0;
+            transition: filter 0.5s, opacity 0.5s;
+            z-index: -1;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="images/v1_6372.png" id="img"></a>
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <a href="indexGrazalema.html">Grazalema</a>
+                    <div class="dropdown">
+                        <a href="indexBosque.html">El Bosque</a>
+                        <a href="indexUbrique.html">Ubrique</a>
+                    </div>
+                </li>
+                <li><a href="#rutas">Rutas</a></li>
+                <li><a href="#lugares">Lugares</a></li>
+                <li><a href="#restaurantes">Restaurantes</a></li>
+            </ul>
+
+        </nav>
+
+        <!-- Interruptor de modo oscuro -->
+        <div class="dark-mode-switch">
+            <input type="checkbox" id="dark-mode-toggle" onclick="toggleDarkMode()">
+            <label for="dark-mode-toggle"></label>
+        </div>
+    </header>
+
+    <section class="section" id="rutas">
+        <h2>Rutas</h2>
+        <div class="carousel">
+            <div>
+                <img src="images/pinsapar.jpg" alt="Ruta 1" onclick="playSound('cesped')">
+                <p>El Pinsapar. </p>
+            </div>
+            <div>
+                <img src="images/torreon.jpg" alt="Ruta 2" onclick="playSound('cesped')">
+                <p>El Torreón. </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="lugares">
+        <h2>Lugares</h2>
+        <div class="carousel">
+            <div>
+                <img src="images/plazaEspana.webp" alt="Lugar 1" onclick="playSound('aves')">
+                <p>Plaza de España</p>
+            </div>
+            <div>
+                <img src="images/MiradorelSanto.jpg" alt="Lugar 2" onclick="playSound('aves')">
+                <p>Mirador el Santo</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="restaurantes">
+        <h2>Restaurantes</h2>
+        <div class="carousel">
+            <div>
+                <img src="images/cadizElChico.jpg" alt="Restaurante 1" onclick="playSound('kitchen'); window.location.href='indexRestaurantes.html';">
+                <p>Restaurante Cádiz el Chico</p>
+            </div>
+            <div>
+                <img src="images/laMerina.jpg" alt="Restaurante 2" onclick="playSound('kitchen'); window.location.href='indexRestaurantes.html';">
+                <p>Restaurante La Merina</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Your website. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of
+                Service</a></p>
+    </footer>
+
+    <div class="illustration" id="illustration"></div>
+
+    <audio id="owl-sound" src="sounds/owl.mp3"></audio>
+    <audio id="rooster-sound" src="sounds/rooster.mp3"></audio>
+    <audio id="cesped-sound" src="sounds/cesped.mp3"></audio>
+    <audio id="aves-sound" src="sounds/aves.mp3"></audio>
+    <audio id="kitchen-sound" src="sounds/kitchen.mp3"></audio>
+
+    <script>
+        let isOwlSound = true;
+
+        function toggleDarkMode() {
+            playSound(isOwlSound ? 'owl' : 'rooster');
+            isOwlSound = !isOwlSound;
+
+            if (!darkModeStylesheet) {
+                // Cargar stylesDark.css si aún no está cargado
+                darkModeStylesheet = document.createElement('link');
+                darkModeStylesheet.rel = 'stylesheet';
+                darkModeStylesheet.href = 'css/styleDark.css';
+                document.head.appendChild(darkModeStylesheet);
+                darkModeToggle.textContent = 'Modo claro'; // Cambiar texto del botón
+            } else {
+                // Si ya está cargado, remover el modo oscuro
+                document.head.removeChild(darkModeStylesheet);
+                darkModeStylesheet = null;
+                darkModeToggle.textContent = 'Modo oscuro'; // Cambiar texto del botón
+            }
+        }
+
+        function playSound(type) {
+            const soundMap = {
+                owl: 'owl-sound',
+                rooster: 'rooster-sound',
+                cesped: 'cesped-sound',
+                aves: 'aves-sound',
+                kitchen: 'kitchen-sound'
+            };
+            const soundId = soundMap[type];
+            if (soundId) {
+                const audio = document.getElementById(soundId);
+                audio.play();
+            }
+        }
+
+        window.addEventListener('scroll', () => {
+            const illustration = document.getElementById('illustration');
+            const scrollY = window.scrollY;
+            const maxScroll = document.body.scrollHeight - window.innerHeight;
+            const opacity = Math.min(scrollY / maxScroll, 1);
+            const blur = Math.max(10 - (scrollY / maxScroll) * 10, 0);
+            illustration.style.opacity = opacity;
+            illustration.style.filter = `blur(${blur}px)`;
+        });
+
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        let darkModeStylesheet;
+    </script>
+</body>
+
+</html>
