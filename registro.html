@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        p {
+            margin-top: 0;
+            margin-bottom: 0%;
+        }
+
+        .contact-form {
+            margin: 10% auto;
+            width: 70%;
+            border-radius: 0.5rem;
+            padding: 2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
+        .contact-form h3 {
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #333;
+        }
+
+        input:focus:required:invalid {
+            border: 2px solid red;
+        }
+
+        footer {
+            width: 100%;
+            position: relative;
+            bottom: 0;
+            background-color: #f26522;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-top: 3px solid #ff6347;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body.dark-mode label {
+            color: black;
+        }
+
+        body.dark-mode .contact-form{
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/v1_6372.png" id="img" />
+            </a>
+        </div>
+        <div class="dark-mode-switch">
+            <input type="checkbox" id="dark-mode-toggle">
+            <label for="dark-mode-toggle"></label>
+        </div>
+    </header>
+
+    <div class="container contact-form">
+        <form id="contactForm" method="post" class="p-5 rounded">
+            <h3 class="text-center mb-4">Regístrate</h3>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="name">Nombre *</label>
+                    <input type="text" name="name" id="name" class="form-control" placeholder="Tu nombre" required />
+
+                    <label for="email">Email *</label>
+                    <input type="email" name="email" id="email" class="form-control" placeholder="email@ejemplo.com"
+                        required />
+
+                    <label for="phone">Teléfono *</label>
+                    <input type="tel" name="phone" id="phone" class="form-control" placeholder="Nº de telefono "
+                        required />
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="message">Mensaje (Opcional)</label>
+                    <textarea name="message" id="message" class="form-control" placeholder="Escribe tu mensaje aquí..."
+                        style="height: 150px;"></textarea>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <input type="submit" name="btnSubmit" class="btn btn-primary btn-block" value="Registrarse" />
+                    <input type="button" name="btnBack" class="btn btn-success btn-block" value="Volver" />
+                </div>
+            </div>
+            <div id="successMessage" class="alert alert-success" style="display: none;">
+                Registro realizado con éxito.
+            </div>
+        </form>
+    </div>
+
+    <footer class="text-center mt-4">
+        <p>&copy; 2024 Your website. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of
+                Service</a></p>
+    </footer>
+
+    <script>
+        $(document).ready(function () {
+            $("form").on("submit", function (event) {
+                event.preventDefault();
+                $("#successMessage").show();
+                $("form")[0].reset();
+            });
+
+            $("input[name='btnBack']").on("click", function () {
+                window.location.href = 'index.html';
+            });
+        });
+
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        darkModeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+        });
+    </script>
+</body>
+
+</html>
